@@ -1,38 +1,34 @@
 #include <stdio.h>
 #include <string.h>
 
-int analisaPalavra(char str[], char x);
+void analisaPalavra(char str[], char x, int *pt);
 
 int main()
 {
-    char str[25], x, total;
+    char str[25], x;
+    int t = 0, *pt;
+    pt = &t;
     printf ("Digite uma palavra: ");
     scanf ("%s", str);
     printf ("Digite um letra contida na palavra: ");
     scanf (" %c", &x);
 
-    total = analisaPalavra(str, x);
+    analisaPalavra(str, x, pt);
 
-    printf ("Total de letras = %d", total);
+    printf ("Total de letras = %d", *pt);
 
     return 0;
 }
 
-int analisaPalavra(char str[], char x)
+void analisaPalavra(char str[], char x, int *pt)
 {
-    int cont = 0, cont2 = 0, v[25];
+    int v[25];
     for(int i = 0; i < strlen(str); i++){
         if(str[i] == x){
             v[i] = i;
-            cont++;
+            *pt = *pt + 1;
         }else{
             v[i] = 0;
         }
-    } 
-
-    int v2[cont];
-    for (int i = 0; i < sizeof(v); i++){
-
-    }
-    return cont;   
+    }  
 }
