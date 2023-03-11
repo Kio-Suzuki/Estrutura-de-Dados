@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void analisaPalavra(char str[], char x, int *pt);
+int* analisaPalavra(char str[], char x, int *pt);
 
 int main()
 {
@@ -15,20 +15,37 @@ int main()
 
     analisaPalavra(str, x, pt);
 
-    printf ("Total de letras = %d", *pt);
+    printf ("Total de letras = %d\n", *pt);
+    for (int i = 0; i < *pt; i++){
+        printf ("[%d] ", (analisaPalavra));
+    }
 
     return 0;
 }
 
-void analisaPalavra(char str[], char x, int *pt)
+int* analisaPalavra(char str[], char x, int *pt)
 {
-    int v[25];
     for(int i = 0; i < strlen(str); i++){
         if(str[i] == x){
-            v[i] = i;
             *pt = *pt + 1;
-        }else{
-            v[i] = 0;
         }
-    }  
+    }
+
+    int *v, cont = 0;
+    v = malloc(*pt *sizeof(int));
+    for(int i = 0; i < strlen(str); i++){
+        if(str[i] == x){
+            cont++;
+            v[cont-1] = i;
+        }
+        
+    }
+
+    printf ("v[0] = %d\n", v[0]);
+    printf ("v[1] = %d\n", v[1]);
+    
+    return v;
 }
+
+
+
