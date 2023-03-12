@@ -1,27 +1,24 @@
 #include <stdio.h>  
 #include <string.h> 
+#include <conio.h>
 
 char *strcopy(char *str);
 
-int main()
+void main()
 {
-    char str[20], *pstr, cstr[20];
-    pstr = &str;
+    char str[20], *copia;
     printf ("Digite uma palavra: ");
-    scanf ("%s", str);
-
+    gets (str);
     
+    copia = *strcopy(str);
 
-    printf ("Palavara copiada: %s\n", strcopy(pstr));
-
+    printf ("Palavara copiada: %s\n", *copia);
 }
 
 char *strcopy(char *str)
 {
-    char copia[20], *pc;
-    pc = &copia;
-    strcpy  (copia, str);
-    
-    printf ("%s\n", copia);
-    return *pc;
+    char *cstr = malloc(10);
+    strcpy(cstr,str);
+    printf ("palavra da funcao copiada: %s\n", cstr);
+    return cstr;
 }

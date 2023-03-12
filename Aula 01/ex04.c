@@ -4,13 +4,15 @@ void mm(int v[], int *pmin, int *pmax);
     
 int main()
 {
-    int v[5], min = 0, max = 0, *pmin, *pmax;
+    int v[5], min, max, *pmin, *pmax;
     pmin = &min;
     pmax = &max;
     for (int i = 0; i < 5; i++){
         printf ("Digite um valor: ");
         scanf ("%d", &v[i]);
     }
+    min = v[0];
+    max = v[0];
 
     mm(v, pmin, pmax);
 
@@ -28,4 +30,7 @@ void mm(int v[], int *pmin, int *pmax)
         }
     }
 }
+
+
+
 
