@@ -45,9 +45,8 @@ void apresentaIMC(dados *p, int n)
         for (int i = 0; i < n; i++){
             if (cpf == p[i].cpf){
                 printf ("IMC: %.2f\n", p[i].peso/(p[i].altura*p[i].altura));
-            printf ("Deseja buscar novamente (s/n): ");
-            scanf (" %c", &opc);
-
+                printf ("Deseja buscar novamente (s/n): ");
+                scanf (" %c", &opc);
             }else{
                 printf ("CPF nao encontrado, deseja buscar novamente (s/n): ");
                 scanf (" %c", &opc);
