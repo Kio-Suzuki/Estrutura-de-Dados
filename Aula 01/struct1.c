@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 typedef struct cadastro{
@@ -12,11 +13,12 @@ void imprimiAlunos(aluno *x, int n);
 
 int main()
 {
+    aluno *x;
     int n;
     printf ("Quantos alunos serao cadastrados? ");
     scanf ("%d", &n);
-    aluno x[n];
-
+    x = malloc(n*sizeof(aluno));
+    
     for (int i = 0; i < n; i++){
         printf ("Nome: ");
         scanf ("%s", x[i].nome);

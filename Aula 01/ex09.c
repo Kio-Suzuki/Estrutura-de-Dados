@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
 void maximoMinimo(int *v, int N, int *maximo, int *minimo);
@@ -14,13 +15,14 @@ int main()
     v = malloc(N * sizeof (int));
     for (int i = 0; i < N; i++){
         v[i] = rand()%101;
+        printf ("[%d] ", v[i]);
     }
 
     max = v[0];
     min = v[0];
 
     maximoMinimo(v, N, pmax, pmin);
-    printf ("Valor maximo = %d\n", *pmax);
+    printf ("\nValor maximo = %d\n", *pmax);
     printf ("Valor minimo = %d\n", *pmin);
 
     free(v);

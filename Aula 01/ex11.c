@@ -47,3 +47,7 @@ int* analisaPalavra(char str[], char x, int *pt)
 
 
 
+
+
+
+
