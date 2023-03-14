@@ -10,7 +10,7 @@ void main()
     printf ("Digite uma palavra: ");
     gets (str);
     
-    copia = *strcopy(str);
+    *copia = *strcopy(str);
 
     printf ("Palavara copiada: %s\n", *copia);
 }
