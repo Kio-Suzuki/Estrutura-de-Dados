@@ -23,21 +23,23 @@ int main()
         printf ("\n");
     }
     matrizTrans(m, l, c);
+    
     return 0;
 }
 
 void matrizTrans(int *m, int l, int c)
 {
     int *mt;
-    mt = (int*)malloc(l*c*sizeof(int));
+    mt = (int*)malloc(c*l*sizeof(int));
 
     printf ("\nMatriz Transposta:\n");
-    for(int j = 0; j < l; j++){
-        for(int i = 0; i < c; i++){
+    for(int j = 0; j < c; j++){
+        for(int i = 0; i < l; i++){
             mt[i*c+j] = m[i*c+j];
             printf ("[%.2d] ", m[i*c+j]);
         }
         printf ("\n");
     }
 }
+
 

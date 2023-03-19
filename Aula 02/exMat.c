@@ -15,12 +15,13 @@ int main()
     for(int i = 0; i < m; i++){
         A[i] = malloc(p*sizeof(int));
     }
-
+    int c = 1;
     printf ("\nMATRIZ A:\n");
     for(int i = 0; i < m; i++){
         for (int j = 0; j < p; j++){
-            A[i][j] = rand()%11;
+            A[i][j] = c;
             printf ("[%.2d] ", A[i][j]);
+            c++;
         }
         printf ("\n");
     }
@@ -32,11 +33,13 @@ int main()
         B[i] = malloc(n*sizeof(int));
     }
 
+    c = 1;
     printf ("\nMATRIZ B:\n");
     for(int i = 0; i < p; i++){
         for (int j = 0; j < n; j++){
-            B[i][j] = rand()%11;
+            B[i][j] = c;
             printf ("[%.2d] ", B[i][j]);
+            c++;
         }
         printf ("\n");
     }
@@ -46,24 +49,20 @@ int main()
     for(int i = 0; i < m; i++){
         M[i] = malloc(n*sizeof(int));
     }
+
     M[0][0] = 0;
-    int k = 1;
+    
     for(int i = 0; i < m; i++){
         for (int j = 0; j < n; j++){
-            M[i][j] = (A[i][k] * B[k][j] + A[i][k+1] * B[k+1][j]);    
+            for(int k = 1; k < m; k++){
+                if(k < n-1){
+                    M[i][j] = M[i][j] + (A[i][k] * B[k][j]);    
+                }else{
+                    M[i][j] = (A[i][k] * B[k][j]);  
+                }   
+            }
         }
     }
-    
-
-    //M[0][0] = 0;
-    //int k = 1;
-    //for(int i = 0; i < m; i++){
-    //    for (int j = 0; j < n; j++){
-    //        for (int k = 1; k < p; k++){
-    //            M[i][j] = M[i][j] + (A[i][k] * B[k][j]);    
-    //        }
-    //    }
-    //}
 
     printf ("\nMATRIZ M: \n");
     for(int i = 0; i < m; i++){
@@ -75,3 +74,5 @@ int main()
 
     return 0;
 }
+
+//A[i][k] * B[k][j] + A[i][k] * B[k+1][j] + A[i][k] * B[k][j]

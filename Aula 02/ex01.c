@@ -27,29 +27,33 @@ int main()
     }
 
     matrizTrans(m, l, c);
-    
     for(int i; i < l; i++){
         free(m[i]);
     }
     free(m);
+    return 0;
 }
 
 void matrizTrans(int **m, int l, int c)
 {
     int **mt;   
 
-    mt = (int**)malloc(l*sizeof(int*));
-    for(int i = 0; i < l; i++){
-        mt[i] = malloc(c*sizeof(int));
+    mt = (int**)malloc(c*sizeof(int*));
+    for(int i = 0; i < c; i++){
+        mt[i] = malloc(l*sizeof(int));
     }
     printf ("\n");
    
-    for(int i = 0; i < l; i++){
-        for (int j = 0; j < c; j++){
+    for(int i = 0; i < c; i++){
+        for (int j = 0; j < l; j++){
             mt[i][j] = m[j][i];
             printf ("[%.2d] ", mt[i][j]);
         }
         printf ("\n");
     } 
-    
 }
+
+
+
+
+
