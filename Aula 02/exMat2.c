@@ -1,19 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 int main()
 {
     int **A, m, p, **B, n, i, j, c = 1;
 
+    srand(time(NULL));
     printf ("Linhas: ");
     scanf ("%d", &m);
     printf ("Colunas: ");
     scanf ("%d", &p);
-
     A = (int**)malloc(m*sizeof(int*));
     for(i = 0; i < m; i++){
         A[i] = malloc(p*sizeof(int));
     }
+    
     printf ("\nMATRIZ A:\n");
     for(i = 0; i < m; i++){
         for (j = 0; j < p; j++){
@@ -46,41 +48,15 @@ int main()
     for(i = 0; i < m; i++){
         M[i] = malloc(n*sizeof(int));
     }
-  
-    if(p <= 2){
-        for(i = 0; i < m; i++){
-            for (j = 0; j < n; j++){
-                M[i][j] = (A[i][1] * B[1][j]);    
+
+     for(i = 0; i < p; i++){
+        for (j = 0; j < n; j++){
+            for(int k = 1; k < (p-1); k++){
+                M[i][j] = (A[i][k] * B[k][j]);
             }
         }
-    }else if (p == 3){
-        for(i = 0; i < m; i++){
-            for (j = 0; j < n; j++){
-                M[i][j] = (A[i][1] * B[1][j]);    
-            }
-        }    
-        for(i = 0; i < m; i++){
-            for (j = 0; j < n; j++){
-                M[i][j] = M[i][j] + (A[i][2] * B[2][j]);    
-            }
-        }       
-    }else{
-        for(i = 0; i < m; i++){
-            for (j = 0; j < n; j++){
-                M[i][j] = (A[i][1] * B[1][j]);    
-            }
-        }
-        for(i = 0; i < m; i++){
-            for (j = 0; j < n; j++){
-                M[i][j] = M[i][j] + (A[i][2] * B[2][j]);    
-            }
-        }
-        for(i = 0; i < m; i++){
-            for (j = 0; j < n; j++){
-                M[i][j] = M[i][j] + (A[i][3] * B[3][j]);    
-            }
-        }    
     }
+
     printf ("\nMATRIZ M: \n");
     for(i = 0; i < m; i++){
         for (j = 0; j < n; j++){
@@ -88,10 +64,6 @@ int main()
         }
         printf ("\n");
     }
+
     return 0;
 }
-
-
-
-
-
