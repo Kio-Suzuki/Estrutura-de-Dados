@@ -24,8 +24,6 @@ int main()
     }
     matrizTrans(m, l, c);
     
-
-    
     return 0;
 }
 
