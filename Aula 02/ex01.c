@@ -3,6 +3,7 @@
 #include <time.h>
 
 void matrizTrans(int **m, int l, int c);
+void freeMatriz(int **m, int l);
 
 int main()
 {
@@ -27,10 +28,9 @@ int main()
     }
 
     matrizTrans(m, l, c);
-    for(int i; i < l; i++){
-        free(m[i]);
-    }
-    free(m);
+    
+    freeMatriz(m, l);
+
     return 0;
 }
 
@@ -50,7 +50,16 @@ void matrizTrans(int **m, int l, int c)
             printf ("[%.2d] ", mt[i][j]);
         }
         printf ("\n");
-    } 
+    }
+    freeMatriz(mt, l); 
+}
+
+void freeMatriz(int **m, int l)
+{
+    for(int i; i < l; i++){
+        free(m[i]);
+    }
+    free(m);    
 }
 
 

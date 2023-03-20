@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void printMatriz(int **m, int l, int c, int k);
+void freeMatriz(int **m, int l);
+void criaMatriz(int **m, int l, int c);
+
 int main()
 {
     int **A, m, p, **B, n, i, j, c = 1;
@@ -11,41 +15,21 @@ int main()
     scanf ("%d", &p);
 
     A = (int**)malloc(m*sizeof(int*));
-    for(i = 0; i < m; i++){
-        A[i] = malloc(p*sizeof(int));
-    }
-    printf ("\nMATRIZ A:\n");
-    for(i = 0; i < m; i++){
-        for (j = 0; j < p; j++){
-            A[i][j] = c;
-            printf ("[%.2d] ", A[i][j]);
-            c++;
-        }
-        printf ("\n");
-    }
+    criaMatriz(A, m, p);
+    
+    printMatriz(A, m, p, c);
 
     printf ("\nColunas: ");
     scanf ("%d", &n);
+    
     B = (int**)malloc(p*sizeof(int*));
-    for(i = 0; i < p; i++){
-        B[i] = malloc(n*sizeof(int));
-    }
-    c = 1;
-    printf ("\nMATRIZ B:\n");
-    for(i = 0; i < p; i++){
-        for (j = 0; j < n; j++){
-            B[i][j] = c;
-            printf ("[%.2d] ", B[i][j]);
-            c++;
-        }
-        printf ("\n");
-    }
+    criaMatriz(B, p, n);
+    
+    printMatriz(B, p, n, c);
 
     int **M;
     M = (int**)malloc(m*sizeof(int*));
-    for(i = 0; i < m; i++){
-        M[i] = malloc(n*sizeof(int));
-    }
+    criaMatriz(M, m, n);
   
     if(p <= 2){
         for(i = 0; i < m; i++){
@@ -88,8 +72,44 @@ int main()
         }
         printf ("\n");
     }
+    
+    freeMatriz(A, m);
+    freeMatriz(B, p);
+    freeMatriz(M, m);
+
     return 0;
 }
+
+void criaMatriz(int **m, int l, int c)
+{
+    for(int i = 0; i < l; i++){
+        m[i] = malloc(c*sizeof(int));
+    }
+}
+
+void printMatriz(int **m, int l, int c, int k)
+{
+    printf ("\nMATRIZ:\n");
+    for(int i = 0; i < l; i++){
+        for (int j = 0; j < c; j++){
+            m[i][j] = k;
+            printf ("[%.2d] ", m[i][j]);
+            k++;
+        }
+        printf ("\n");
+    }
+}
+
+void freeMatriz(int **m, int l)
+{
+    for(int i; i < l; i++){
+        free(m[i]);
+    }
+    free(m);    
+}
+
+
+
 
 
 
