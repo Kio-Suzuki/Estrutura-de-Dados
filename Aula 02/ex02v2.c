@@ -4,7 +4,7 @@
 
 int main()
 {
-    int *A, m, p, **B, n, c = 1;
+    int *A, m, p, *B, n, *M, c = 1, i, j;
 
     srand(time(NULL));
     printf ("Linhas: ");
@@ -14,8 +14,9 @@ int main()
     
     A = (int*)malloc(m*p*sizeof(int));
     
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < p; j++){
+    printf ("\nMATRIZ A\n");
+    for(i = 0; i < m; i++){
+        for(j = 0; j < p; j++){
             A[i*p+j] = c;
             printf("[%.2d] ", A[i*p+j]);
             c++;
@@ -27,27 +28,65 @@ int main()
     scanf ("%d", &n);
     B = (int*)malloc(p*n*sizeof(int));
     c = 1;
-    for(int i = 0; i < p; i++){
-        for(int j = 0; j < n; j++){
+    printf("\nMATRIZ B\n");
+    for(i = 0; i < p; i++){
+        for(j = 0; j < n; j++){
             B[i*n+j] = c;
             printf("[%.2d] ", B[i*n+j]);
             c++;
         }
         printf("\n");
     }
-
-    int *M;
+   
     M = (int*)malloc(m*n*sizeof(int));
-    printf ("\nMATRIZ M:\n");
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            for(int k = 1; k < n; k++){
-                M[i*n+j] = ((A[i*p+k])+(B[k*n+j]));
-                printf ("[%.2d] ", M[i*n+j]);
+    
+    if(p <= 3){
+        for(i = 0; i < m; i++){
+            for (j = 0; j < n; j++){
+                M[i*n+j] = A[i*p+1] * B[1*n+j];   
             }
+        }
+        for(i = 0; i < m; i++){
+            for (j = 0; j < n; j++){
+                M[i*n+j] = M[i*n+j] + A[i*p+2] * B[2*n+j];    
+            }
+        } 
+    }else if (p == 4){
+        for(i = 0; i < m; i++){
+            for (j = 0; j < n; j++){
+                M[i*n+j] = A[i*p+1] * B[1*n+j];    
+            }
+        }    
+        for(i = 0; i < m; i++){
+            for (j = 0; j < n; j++){
+                M[i*n+j] = M[i*n+j] + A[i*p+2] * B[2*n+j];    
+            }
+        }       
+    }else{
+        for(i = 0; i < m; i++){
+            for (j = 0; j < n; j++){
+                M[i*n+j] = A[i*p+1] * B[1*n+j];    
+            }
+        }
+        for(i = 0; i < m; i++){
+            for (j = 0; j < n; j++){
+                M[i*n+j] = M[i*n+j] + A[i*p+2] * B[2*n+j];     
+            }
+        }
+        for(i = 0; i < m; i++){
+            for (j = 0; j < n; j++){
+                M[i*n+j] = M[i*n+j] + A[i*p+3] * B[3*n+j];    
+            }
+        }    
+    }
+
+    printf ("\nMATRIZ M\n");
+    for(i = 0; i < m; i++){
+        for(j = 0; j < n; j++){
+            printf("[%.2d] ", M[i*n+j]);
         }
         printf("\n");
     }
-
     return 0;
 }
+
