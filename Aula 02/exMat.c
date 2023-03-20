@@ -32,7 +32,6 @@ int main()
     for(int i = 0; i < p; i++){
         B[i] = malloc(n*sizeof(int));
     }
-
     c = 1;
     printf ("\nMATRIZ B:\n");
     for(int i = 0; i < p; i++){
@@ -49,18 +48,10 @@ int main()
     for(int i = 0; i < m; i++){
         M[i] = malloc(n*sizeof(int));
     }
-
-    M[0][0] = 0;
     
-    for(int i = 0; i < m; i++){
+    for(int i = 0; i < p; i++){
         for (int j = 0; j < n; j++){
-            for(int k = 1; k < m; k++){
-                if(k < n-1){
-                    M[i][j] = M[i][j] + (A[i][k] * B[k][j]);    
-                }else{
-                    M[i][j] = (A[i][k] * B[k][j]);  
-                }   
-            }
+            M[i][j] = (A[i][1]*B[1][j]); 
         }
     }
 
@@ -74,5 +65,3 @@ int main()
 
     return 0;
 }
-
-//A[i][k] * B[k][j] + A[i][k] * B[k+1][j] + A[i][k] * B[k][j]
