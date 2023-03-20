@@ -23,7 +23,7 @@ int main()
         printf ("\n");
     }
     matrizTrans(m, l, c);
-    
+    free(m);
     return 0;
 }
 
@@ -40,6 +40,7 @@ void matrizTrans(int *m, int l, int c)
         }
         printf ("\n");
     }
+    free(mt);
 }
 
 
