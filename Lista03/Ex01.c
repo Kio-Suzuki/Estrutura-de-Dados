@@ -9,6 +9,7 @@ typedef struct lista{
 Lista* insere(Lista* l, int i);
 void imprime(Lista* l);
 Lista* separa(Lista* l, int n);
+void somaLista(Lista* l);
 
 int main(void)
 {
@@ -18,13 +19,19 @@ int main(void)
     l = insere(l, 5);
     l = insere(l, 12);
     l = insere(l, 1);
+       
+    int x;
+    printf("Qual numero deseja buscar: ");
+    scanf("%d", &x);
+
+
+    //somaLista(l);
+
+    Lista* l2 = separa(l, x);
     
     printf("Lista 1:\n");
     imprime(l);
-    
     printf("\n\nLista 2:\n");
-
-    Lista* l2 = separa(l, 5);
     imprime(l2);
 
     return 0;
@@ -49,14 +56,26 @@ void imprime(Lista* l)
 Lista* separa(Lista* l, int n)
 {
     Lista* p = l;
+    
     while(p->numero != n){
         p = p->prox;
     }
+    
     p = p->prox;
+    
     Lista* l2 = (Lista*)malloc(sizeof(Lista));
     l2->numero = p->numero;
     l2->prox = p->prox;
-
+    
     return l2;
 }
 
+void somaLista(Lista* l)
+{
+    Lista* p;
+    int cont = 0;
+    for(p = l; p != NULL; p = p->prox){
+        cont += p->numero;
+    }
+    printf ("SOMA: %d", cont);
+}
