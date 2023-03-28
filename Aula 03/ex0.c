@@ -23,10 +23,10 @@ int main(void)
     l = insere(l, 56);
     l = insere(l, 78);
     imprime(l);
-    l = retira(l, 78);
-    imprime(l);
-    l = retira(l, 45);
-    imprime(l);
+    //l = retira(l, 78);
+    //imprime(l);
+    //l = retira(l, 45);
+    //imprime(l);
     busca(l, 78);
     libera(l);
     return 0;
