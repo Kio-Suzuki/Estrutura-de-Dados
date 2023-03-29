@@ -10,6 +10,7 @@ Lista* insere(Lista* l, int i);
 void imprime(Lista* l);
 Lista* separa(Lista* l, int n);
 void somaLista(Lista* l);
+Lista* apaga(Lista* l, int n);
 
 int main(void)
 {
@@ -29,6 +30,7 @@ int main(void)
 
     Lista* l2 = separa(l, x);
     
+    //apaga(l, x);
     printf("Lista 1:\n");
     imprime(l);
     printf("\n\nLista 2:\n");
@@ -56,17 +58,15 @@ void imprime(Lista* l)
 Lista* separa(Lista* l, int n)
 {
     Lista* p = l;
-    
+
     while(p->numero != n){
         p = p->prox;
     }
     
     p = p->prox;
     
-    Lista* l2 = (Lista*)malloc(sizeof(Lista));
-    l2->numero = p->numero;
-    l2->prox = p->prox;
-    
+    Lista* l2 = p;
+   
     return l2;
 }
 
@@ -78,4 +78,15 @@ void somaLista(Lista* l)
         cont += p->numero;
     }
     printf ("SOMA: %d", cont);
+}
+
+Lista* apaga(Lista* l, int n)
+{
+    Lista* p = l;
+    while(p->numero != NULL){
+        Lista* t = p->prox;
+        p = p->prox;
+    }
+    p = p->prox;
+    free(p);
 }
