@@ -1,50 +1,123 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct lista {
+typedef struct lista{
     int numero;
     struct lista* prox;
 }Lista;
 
-void insere(Lista** head_ref, int valor) {
-    Lista* novaLista = (Lista*)malloc(sizeof(Lista));
-    novaLista->numero = valor;
-    novaLista->prox = (*head_ref);
-    (*head_ref) = novaLista;
-}
+Lista* insere(Lista* l, int i);
+void imprime(Lista* l);
+Lista* separa(Lista* l, int n);
+void somaLista(Lista* l);
+Lista* apaga(Lista* l, int n);
+void menu();
 
-void imprime(Lista* l1) {
-    while (l1 != NULL) {
-        printf("%d ", l1->numero);
-        l1 = l1->prox;
-    }
-}
+int main(void)
+{
+    Lista* l = NULL;
+    Lista* l2 = NULL;
+    int opc, x;
 
-Lista* copiaLista(Lista* l1) {
-    if (l1 == NULL) {
-        return NULL;
-    }
-    Lista* temp = (Lista*)malloc(sizeof(Lista));
-    temp->numero = l1->numero;
-    temp->prox = copiaLista(l1->prox);
-    return temp;
-}
+    do{
+        menu();
+        scanf("%d", &opc);
 
-int main() {
-    Lista* l1 = NULL;
-    insere(&l1, 1);
-    insere(&l1, 2);
-    insere(&l1, 3);
-    insere(&l1, 4);
-    insere(&l1, 5);
+        switch (opc)
+        {
+        case 1:
+            printf ("Valor: ");
+            scanf ("%d", &x);
+            l = insere(l, x);
+            break;
+        
+        case 2: 
+            printf("\nLISTA:\n");
+            imprime(l);
+            imprime(l2);
+            break;
 
-    printf("Lista Original:\n");
-    imprime(l1);
+        case 3:
+            printf("Separar a lista a partir do valor: ");
+            scanf ("%d", &x);
+            l2 = separa(l, x);
+            break;
 
-    Lista* lista_copia = copiaLista(l1);
+        case 4:
+            somaLista(l);
+            break;
 
-    printf("\nLista Copia:\n");
-    imprime(lista_copia);
+        case 5: 
+            printf("Fim do programa!");
 
+        default:
+            printf("Opcao invalida!\n");
+            break;
+        }
+    }while(opc != 3);
+    
     return 0;
+}
+
+Lista* insere(Lista* l, int i)
+{
+    Lista* novaLista = (Lista*)malloc(sizeof(Lista));
+    novaLista->numero = i;
+    novaLista->prox = l;
+    return novaLista;
+}
+
+void imprime(Lista* l)
+{
+    Lista* p;
+    for(p = l; p != NULL; p = p->prox){
+        printf("[%d] ", p->numero);
+    }
+    printf("\n");
+}
+
+Lista* separa(Lista* l, int n)
+{
+    Lista* p = l;
+
+    while(p->numero != n){
+        p = p->prox;
+    }
+    
+    p = p->prox;
+    
+    Lista* novaLista = (Lista*)malloc(sizeof(Lista));
+    novaLista->numero = p->numero;
+    novaLista->prox = p->prox;
+    return novaLista;
+}
+
+void somaLista(Lista* l)
+{
+    Lista* p;
+    int cont = 0;
+    for(p = l; p != NULL; p = p->prox){
+        cont += p->numero;
+    }
+    printf ("SOMA: %d", cont);
+}
+
+Lista* apaga(Lista* l, int n)
+{
+    Lista* p = l;
+    while(p->numero != NULL){
+        Lista* t = p->prox;
+        p = p->prox;
+    }
+    p = p->prox;
+    free(p);
+}
+
+void menu()
+{
+    printf("\n1 - Inserir valor\n");
+    printf("2 - Mostrar lista\n");
+    printf("3 - Separar lista\n");
+    printf("4 - Soma lista\n");
+    printf("5 - Sair\n");
 }
