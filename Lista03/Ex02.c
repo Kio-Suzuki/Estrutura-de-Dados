@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "lista03.h"
 
 typedef struct lista{
     float info;
