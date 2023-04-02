@@ -54,3 +54,32 @@ void menu()
     printf("4 - Mostrar Lista\n");
     printf("5 - Sair\n");
 }
+
+Lista* separa(Lista* l, int n)
+{
+    Lista* p = l;
+
+    while(p->info != n){
+        p = p->prox;
+    }
+    
+    p = p->prox;
+    
+    Lista* l2 = p;
+
+    apaga(l, 17);
+    
+
+    return l2;
+}
+
+Lista* apaga(Lista* l, int n)
+{
+    Lista* p = l;
+    while(p->info != NULL){
+        Lista* t = p->prox;
+        p = p->prox;
+    }
+    p = p->prox;
+    free(p);
+}
