@@ -1,9 +1,7 @@
-struct lista{
+typedef struct lista{
     int info;
     struct lista* prox;
-};
-
-typedef struct lista Lista;
+}Lista;
 
 void preencheVetor(int* v, int n)
 {

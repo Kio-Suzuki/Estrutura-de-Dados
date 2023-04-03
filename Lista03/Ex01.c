@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "lista03.h"
+#include "listaEncadeada.h"
 
 int main(void)
 {
