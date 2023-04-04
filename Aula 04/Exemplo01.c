@@ -12,9 +12,9 @@ void imprime(Lista* l);
 int main()
 {
     Lista* l = NULL;
-    //l = inserir(l, 1);
-    //l = inserir(l, 2);
-    //l = inserir(l, 3);
+    l = inserir(l, 1);
+    l = inserir(l, 2);
+    l = inserir(l, 3);
 
     imprime(l);
 }
@@ -44,7 +44,7 @@ void imprime(Lista* l)
     Lista* p = l;
     if(p != NULL){
         do{
-            printf("[%d] ", p->info);
+            printf("[%d] ->  ", p->info);
             p = p->prox;
         }while(p != l);
     }else{
