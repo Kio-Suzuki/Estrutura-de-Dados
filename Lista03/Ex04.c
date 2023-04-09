@@ -25,11 +25,15 @@ int main()
         case 2:
             printf("Quantos numeros deseja remover: ");
             scanf("%d", &y);
-            retira_prefixo(l, y);
+            l = retira_prefixo(l, y);
             break;
         
         case 3:
             imprime(l);
+            break;
+
+        case 4:
+            printf("Fim do programa!");
             break;
         
         default:
@@ -44,16 +48,16 @@ int main()
 
 Lista* retira_prefixo(Lista* l, int n)
 {
-    Lista* p = l;
-    for(int i = 0; i <= n; i++){
-        if(p->prox != NULL){
-            p = p->prox;
-            free(l);
-        }
-        
-        
+    Lista* temp = l->prox;
+    if(l->prox == NULL){
+        return NULL;
     }
-
+    
+    l->prox = temp->prox;
+    free(temp);
+    l->info--;
+    
+    
 }
 
 
