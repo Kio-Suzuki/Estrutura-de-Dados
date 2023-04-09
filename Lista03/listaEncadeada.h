@@ -56,7 +56,7 @@ void menu()
     printf("5 - Sair\n");
 }
 
-Lista* separa(Lista* l, int n)
+/*Lista* separa(Lista* l, int n)
 {
     Lista* p = l;
 
@@ -68,6 +68,22 @@ Lista* separa(Lista* l, int n)
 
     Lista* l2 = p;
     
+    return l2;
+}*/
+
+Lista* separa(Lista* l, int n)
+{
+    
+    while(l->info != n){
+        l = l->prox;
+    }
+    
+    l = l->prox;
+
+    Lista* l2 = l;
+    
+    l->prox = NULL;
+
     return l2;
 }
 
