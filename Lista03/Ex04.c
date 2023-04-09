@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include "listaEncadeadaFloat.h"
 
-Lista* retira_prefixo(Lista* l, int n);
-
 int main()
 {
     Lista* l = NULL;
@@ -12,6 +10,7 @@ int main()
 
     do{
         menu2();
+        printf ("Opcao: ");
         scanf("%d", &opc);
 
         switch(opc)
@@ -23,7 +22,7 @@ int main()
             break;
 
         case 2:
-            printf("Quantos numeros deseja remover: ");
+            printf("Quantos nos deseja remover: ");
             scanf("%d", &y);
             l = retira_prefixo(l, y);
             break;
@@ -45,19 +44,3 @@ int main()
     
     return 0;
 }
-
-Lista* retira_prefixo(Lista* l, int n)
-{
-    Lista* temp = l->prox;
-    if(l->prox == NULL){
-        return NULL;
-    }
-    
-    l->prox = temp->prox;
-    free(temp);
-    l->info--;
-    
-    
-}
-
-

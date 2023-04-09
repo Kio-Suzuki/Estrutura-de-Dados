@@ -14,10 +14,30 @@ Lista* insere(Lista* l, float x)
 void imprime(Lista* l)
 {
     Lista* p;
+    if(l == NULL){
+        printf ("Lista vazia");
+    }
+
     for(p = l; p != NULL; p = p->prox){
         printf("[%.1f] ", p->info);
     }
     printf("\n");
+}
+
+Lista* retira_prefixo(Lista* l, int n)
+{
+    int cont = 0;
+
+    if(l->prox == NULL)
+        printf("Lista vazia");
+    
+    do{
+        Lista* temp = l;
+        l = temp->prox;
+        cont++;
+    }while(cont < n);
+
+    return l;
 }
 
 Lista* concatena(Lista* l1, Lista* l2)
@@ -34,6 +54,7 @@ Lista* concatena(Lista* l1, Lista* l2)
         novalista = novalista->prox;
     }
     novalista->prox = l2;
+    printf ("\nLista concatenada com sucesso\n");
     return l1;
 }
 
@@ -50,7 +71,7 @@ void menu()
 void menu2()
 {
     printf("\n1 - Inserir valor na lista\n");
-    printf("2 - Remover numeros da lista\n");
+    printf("2 - Remover nos da lista\n");
     printf("3 - Mostra lista\n");
     printf("4 - Sair\n");
 }

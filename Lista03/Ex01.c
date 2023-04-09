@@ -5,6 +5,7 @@
 int main(void)
 {
     Lista* l = NULL;
+
     l = insere(l, 3);
     l = insere(l, 17);
     l = insere(l, 5);

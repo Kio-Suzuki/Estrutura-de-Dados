@@ -12,6 +12,7 @@ int main(void)
 
     do{
         menu();
+        printf ("Opcao: ");
         scanf("%d", &opc);
 
         switch (opc)

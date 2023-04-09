@@ -22,6 +22,9 @@ Lista* insere(Lista* l, int x)
 void imprimeLista(Lista* l)
 {
     Lista* p;
+    if(l == NULL){
+        printf ("Lista vazia");
+    }
     for(p = l; p != NULL; p = p->prox){
         printf("[%d] ", p->info);
     }
@@ -62,7 +65,7 @@ Lista* separa(Lista* l, int n)
     }
     
     p = p->prox;
-    
+
     Lista* l2 = p;
     
     return l2;

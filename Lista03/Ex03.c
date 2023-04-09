@@ -15,6 +15,7 @@ int main(void)
     
     do{
         menu();
+        printf("Opcao: ");
         scanf("%d", &opc);
 
         switch (opc)
@@ -26,7 +27,7 @@ int main(void)
         case 2:
             l = constroi(n, &v);
             if(l != NULL){
-                printf("Lista criada com sucesso!\n");    
+                printf("\nLista criada com sucesso!\n");    
             }
             break;
 
