@@ -22,7 +22,7 @@ ListaC* inserirI(ListaC *l, int v){
 		return novo;
 	}
 	
-	while(p->prox!=l)
+	while(p->prox != l)
 		p = p->prox;
 	
 	p->prox = novo;
@@ -37,8 +37,7 @@ void imprimir(ListaC *l){
 			printf("[%d] -> ",p->info);
 			p=p->prox;
 		}while(p!=l);
-	}
-	else
+	}else
 		printf("\nLISTA VAZIA!!!");
 }
 
@@ -70,7 +69,7 @@ ListaC* excluir(ListaC *l, int v){
 		}while(p!=l && p->info!=v); 
 		
 		if(p==l){
-			//primeiro elemento, para excluir devemos procurar o �ltimo elemento e depois retornar p->prox
+			//primeiro elemento, para excluir devemos procurar o ultimo elemento e depois retornar p->prox
 			px = p->prox;
 			if(px==l){
 				free(px);
@@ -112,6 +111,8 @@ ListaC* eliminar(ListaC *l){
 	}	
 	return NULL;
 }
+
+
 
 int main(){
 	ListaC *L1, *L2;
