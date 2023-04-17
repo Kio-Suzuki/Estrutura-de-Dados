@@ -43,7 +43,12 @@ ListaC* separa(ListaC* l, int n)
     
     p = p->prox;
 
-    ListaC* l2 = p;
+	ListaC* l2;
+	while(p != l){
+    	l2 = p->prox;
+	}
+
+	imprimeLista(l2);
     
     return l2;
 }

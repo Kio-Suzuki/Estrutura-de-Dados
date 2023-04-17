@@ -33,29 +33,23 @@ void imprimeLista(ListaC *l){
 		printf("\nLISTA VAZIA!!!");
 }
 
-ListaC* concatena(ListaC* l1, ListaC* l2)
-{
-    if (l1 == NULL) {
-        return l2;
-    }
-    if (l2 == NULL) {
-        return l1;
-    }
+ListaC* concatena(ListaC* l1, ListaC* l2){
 
-    ListaC *novo, *p=l1;
-	novo = (ListaC*)malloc(sizeof(ListaC));
-
-	novo = l2;
-	if(l1 != NULL){
-		novo->prox = l1;
-		while(p->prox!=l1){
-			p = p->prox;			
-		}
-		p->prox = l2;
+	if(l1 = NULL){
+		return l2;
+	}
+	if(l2 = NULL){
 		return l1;
 	}
-	else{
-		novo->prox = l2;
-		return novo;
+
+	ListaC *p = l1;
+	while(p->prox != l1){
+		p = p->prox;
 	}
+	p->prox = l2;
+	while(p->prox != l2){
+		p = p->prox;
+	}
+	p->prox = l1;
+	return l1;
 }

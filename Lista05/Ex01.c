@@ -5,14 +5,17 @@
 int main(void)
 {
     ListaC* l = NULL;
+    int n, x;
 
-    l = inserirI(l, 3);
-    l = inserirI(l, 17);
-    l = inserirI(l, 5);
-    l = inserirI(l, 12);
-    l = inserirI(l, 1);
-       
-    int x;
+    printf("Quantos elementos gostaria de adicionar a lista: ");
+    scanf("%d", &n);      
+
+    for(int i = 0; i < n; i++){
+        printf ("Valor: ");
+        scanf ("%d", &x);
+        l = inserirI(l, x);
+    }   
+  
     printf("Qual numero deseja buscar: ");
     scanf("%d", &x);
 
