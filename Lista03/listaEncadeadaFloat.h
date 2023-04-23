@@ -66,6 +66,7 @@ void menu()
     printf("4 - Mostrar listas 1 e 2\n");
     printf("5 - Mostrar lista concatenada\n");
     printf("6 - Sair\n");
+    printf ("Opcao: ");
 }
 
 void menu2()

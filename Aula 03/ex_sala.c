@@ -5,6 +5,28 @@ typedef struct lista{
     struct lista *prox;
 }Lista;
 
+Lista *inicializa();
+
+Lista *inserirInicio(Lista *L, int v);
+    
+void imprimir(Lista *L);
+
+int main()
+{
+    Lista *L1, *L2;
+    L1 = inicializa();
+    L2 = inicializa();
+
+    L1 = inserirInicio(L1, 50);
+    L1 = inserirInicio(L1, 40);
+    L1 = inserirInicio(L1, 30);
+    L1 = inserirInicio(L1, 20);
+    L1 = inserirInicio(L1, 10);
+   
+    imprimir(L1);
+    return 0;
+}
+
 Lista *inicializa(){
     return NULL;
 }
@@ -23,19 +45,3 @@ void imprimir(Lista *L){
         L = L->prox;
     }
 }
-
-int main()
-{
-    Lista *L1, *L2;
-    L1 = inicializa();
-    L2 = inicializa();
-
-    L1 = inserirInicio(L1, 12);
-    L1 = inserirInicio(L1, 10);
-    L1 = inserirInicio(L1, 8);
-    L1 = inserirInicio(L1, 8);
-    L1 = inserirInicio(L1, 4);
-   
-    imprimir(L1);
-    return 0;
-}   

@@ -22,9 +22,14 @@ int main(void)
     l = insere(l, 45);
     l = insere(l, 56);
     l = insere(l, 78);
+    
+    printf("\nLISTA ORIGINAL:\n");
     imprime(l);
-    //l = retira(l, 78);
-    //imprime(l);
+
+    l = retira(l, 78);
+    printf("\nLISTA APOS REMOCAO:\n");
+    imprime(l);
+
     //l = retira(l, 45);
     //imprime(l);
     busca(l, 78);

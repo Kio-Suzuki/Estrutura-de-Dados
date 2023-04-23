@@ -6,11 +6,11 @@ typedef struct lista{
     struct lista* prox;
 }Lista;
 
-Lista* insere(Lista* l, int i);
+Lista* insere(Lista* l, float i);
 void imprime(Lista* l);
-Lista* separa(Lista* l, int n);
+Lista* separa(Lista* l, float n);
 void somaLista(Lista* l);
-Lista* apaga(Lista* l, int n);
+Lista* apaga(Lista* l, float n);
 void menu();
 
 int main(void)
@@ -27,7 +27,7 @@ int main(void)
         {
         case 1:
             printf ("Valor: ");
-            scanf ("%d", &x);
+            scanf ("%f", &x);
             l = insere(l, x);
             break;
         
@@ -59,10 +59,10 @@ int main(void)
     return 0;
 }
 
-Lista* insere(Lista* l, int i)
+Lista* insere(Lista* l, float i)
 {
     Lista* novaLista = (Lista*)malloc(sizeof(Lista));
-    novaLista->numero = i;
+    novaLista->info = i;
     novaLista->prox = l;
     return novaLista;
 }
@@ -71,23 +71,23 @@ void imprime(Lista* l)
 {
     Lista* p;
     for(p = l; p != NULL; p = p->prox){
-        printf("[%d] ", p->numero);
+        printf("[%.2f] ", p->info);
     }
     printf("\n");
 }
 
-Lista* separa(Lista* l, int n)
+Lista* separa(Lista* l, float n)
 {
     Lista* p = l;
 
-    while(p->numero != n){
+    while(p->info != n){
         p = p->prox;
     }
     
     p = p->prox;
     
     Lista* novaLista = (Lista*)malloc(sizeof(Lista));
-    novaLista->numero = p->numero;
+    novaLista->info = p->info;
     novaLista->prox = p->prox;
     return novaLista;
 }
@@ -97,15 +97,15 @@ void somaLista(Lista* l)
     Lista* p;
     int cont = 0;
     for(p = l; p != NULL; p = p->prox){
-        cont += p->numero;
+        cont += p->info;
     }
     printf ("SOMA: %d", cont);
 }
 
-Lista* apaga(Lista* l, int n)
+Lista* apaga(Lista* l, float n)
 {
     Lista* p = l;
-    while(p->numero != NULL){
+    while(p != NULL){
         Lista* t = p->prox;
         p = p->prox;
     }
@@ -120,4 +120,5 @@ void menu()
     printf("3 - Separar lista\n");
     printf("4 - Soma lista\n");
     printf("5 - Sair\n");
+    printf("Opcao: ");
 }
