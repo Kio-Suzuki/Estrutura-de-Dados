@@ -3,7 +3,7 @@ typedef struct listaC{
     struct listaC* prox;
 }ListaC;
 
-ListaC* inserirI(ListaC *l, float v){
+ListaC* inserir(ListaC *l, float v){
 	ListaC *novo, *p=l;
 	novo = (ListaC*)malloc(sizeof(ListaC));
 	novo->info = v;
@@ -22,7 +22,8 @@ ListaC* inserirI(ListaC *l, float v){
 	return novo;	
 }
 
-void imprimeLista(ListaC *l){
+void imprimeLista(ListaC *l)
+{
 	ListaC *p=l;
 	if(p!=NULL){
 		do{
@@ -53,3 +54,4 @@ ListaC* concatena(ListaC* l1, ListaC* l2)
 
     return l1;
 }
+

@@ -29,15 +29,16 @@ void imprimeLista(ListaC *l)
 {
 	if(l == NULL){
 		printf("\nLista vazia\n");
+        
 	}
-
+    
 	ListaC* p = l;
 	do{
 		printf("[%d] -> ", p->info);
 		p = p->prox;
 	}while(p != l);
 }
-
+/*
 ListaC *separa (ListaC* l, int n)
 {
 	ListaC *p = l;
@@ -62,11 +63,14 @@ ListaC *separa (ListaC* l, int n)
 	imprimeLista(p);
 	printf("\nLISTA L:\n");
 	imprimeLista(l);
+    printf("\nLISTA L2:\n");
+	imprimeLista(l);
+
+    printf("\nINICIO DO IF\n");
 
     if(p == l) {
         if(p->info != n){
             printf("Valor nao encontrado.\n");
-            return NULL;
         }else{
 			printf("ENTROU NO ELSE 1");
             ant = l;
@@ -76,6 +80,7 @@ ListaC *separa (ListaC* l, int n)
             ant->prox = p->prox;
             l2 = p->prox;
             p->prox = l;
+            printf("\nTESTE\n");
         }
     }else{
 		printf("\nENTROU NO ELSE 2\n");
@@ -83,6 +88,27 @@ ListaC *separa (ListaC* l, int n)
         ant->prox = l2;
         p->prox = l;
     }
+
+	printf("\nLISTA L:\n");
+	imprimeLista(l);
+    printf("\nLISTA L2:\n");
+	imprimeLista(l2);
+
+    return l2;
+}
+*/
+
+ListaC* separa(ListaC* l, int n)
+{
+    while(l->info != n){
+        l = l->prox;
+    }
+    
+    l = l->prox;
+
+    ListaC* l2 = NULL;
+    l2 = l;    
+    l->prox = NULL;
 
     return l2;
 }

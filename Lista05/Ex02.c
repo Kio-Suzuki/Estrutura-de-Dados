@@ -15,7 +15,7 @@ int main(void)
 	for(int i = 0; i < n; i++){
 		printf ("Valor: ");
 		scanf ("%f", &x);
-		l1 = inserirI(l1, x);
+		l1 = inserir(l1, x);
 	}
 
 	printf("Quantos numeros deseja inserir na lista 2?\n");
@@ -24,7 +24,7 @@ int main(void)
 	for(int i = 0; i < n; i++){
 		printf ("Valor: ");
 		scanf ("%f", &x);
-		l2 = inserirI(l2, x);
+		l2 = inserir(l2, x);
 	}
 
 	printf("Lista 1:\n");
