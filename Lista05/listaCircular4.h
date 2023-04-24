@@ -35,19 +35,26 @@ void imprimeLista(ListaC *l){
 
 ListaC* retira_prefixo(ListaC* l, int n)
 {
-    
-	if(l == NULL){
-		printf ("Lista vazia");
-	}	
+   	ListaC *l2 = NULL;
+    ListaC *p = l;
+    ListaC *ant = NULL;
+    int cont = 0;
 
-	ListaC *p = l;
-	ListaC *ant = NULL;
+    do{
+    	ant = p->prox;
+        p = ant;
+        cont++;
+    } while(p != l && cont < n);
 
-	for(int i = 0; i < n; i++){
-		ant = p;
-		p = p->prox;
-	}
+    if(p == l){
+        return l;
+    }
 
-	ant->prox = p->prox;
-	free(p);
+    l2 = ant;
+    while(ant->prox != l){
+        ant = ant->prox;
+    }
+
+    ant->prox = l2;
+    return l2;
 }

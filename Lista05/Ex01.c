@@ -4,7 +4,9 @@
 
 int main(void)
 {
-    ListaC* l = NULL;
+    ListaC* l = NULL; 
+    ListaC* l2 = NULL;
+    
     int n, x;
 
     printf("Quantos elementos gostaria de adicionar a lista: ");
@@ -16,13 +18,17 @@ int main(void)
         l = inserirI(l, x);
     }   
   
-    printf("Qual numero deseja buscar: ");
+    printf("Lista:\n");
+    imprimeLista(l);
+
+    printf("\nQual numero deseja buscar: ");
     scanf("%d", &x);
 
-    ListaC* l2 = separa(l, x);
+    l2 = separa(l, x);
     
-    printf("Lista 1:\n");
+    printf("\n\nLista 1:\n");
     imprimeLista(l);
+    
     printf("\n\nLista 2:\n");
     imprimeLista(l2);
     

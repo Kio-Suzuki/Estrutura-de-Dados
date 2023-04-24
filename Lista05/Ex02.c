@@ -32,8 +32,10 @@ int main(void)
 	printf("\nLista 2:\n");
 	imprimeLista(l2);
 
-	concatena(l1, l2);
+	l1 = concatena(l1, l2);
 
 	printf("\nLista Concatenada:\n");
 	imprimeLista(l1);
+
+	return 0;
 }
