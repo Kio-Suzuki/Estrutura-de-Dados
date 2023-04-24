@@ -9,32 +9,21 @@ int main(void)
     
     int n, x;
 
-    //printf("Quantos elementos gostaria de adicionar a lista: ");
-    //scanf("%d", &n);      
-
-    //for(int i = 0; i < n; i++){
-    //    printf ("Valor: ");
-    //    scanf ("%d", &x);
-    //   l = inserirI(l, x);
-    //}  
-
-    l = inserirI(l, 1);
-    l = inserirI(l, 2);
     l = inserirI(l, 3);
-    l = inserirI(l, 4); 
+    l = inserirI(l, 17);
+    l = inserirI(l, 5);
+    l = inserirI(l, 12); 
+    l = inserirI(l, 1);
   
     printf("Lista:\n");
     imprimeLista(l);
 
-    //printf("\nQual numero deseja buscar: ");
-    //scanf("%d", &x);
-
     l2 = separa(l, 3);
     
-    printf("\n\nLista 1 da main:\n");
+    printf("\n\nLista 1:\n");
     imprimeLista(l);
     
-    printf("\n\nLista 2 da main:\n");
+    printf("\n\nLista 2:\n");
     imprimeLista(l2);
     
     return 0;
