@@ -73,7 +73,6 @@ void menu()
 
 Lista* separa(Lista* l, int n)
 {
-    
     while(l->info != n){
         l = l->prox;
     }
