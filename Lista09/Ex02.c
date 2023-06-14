@@ -48,27 +48,30 @@ int busca (Arv* a, char c){
 		return a->info==c || busca(a->esq,c) || busca(a->dir,c);
 }
 
-int folhas(Arv* a){
+int ocorrencias(Arv* a, char c){
 	if (vazia(a))
 		return 0; 
-	else if (vazia(a->esq) && vazia(a->dir))
-		return 1; 
-	else
-		return folhas(a->esq) + folhas(a->dir); 
+	else {
+		int count = 0;
+		if (a->info == c)
+			count++; 
+		count += ocorrencias(a->esq, c);
+		count += ocorrencias(a->dir, c); 
+		return count;
+	}
 }
-
 
 int igual(Arv* a, Arv* b){
 	if (vazia(a) && vazia(b))
 		return 1; 
 	else if (vazia(a) || vazia(b))
-		return 0;
+		return 0; 
 	else
 		return (a->info == b->info) && igual(a->esq, b->esq) && igual(a->dir, b->dir); 
 }
 
 int main(){
-    int nf;
+    int ocd;
 	Arv *a1;
 	Arv* a = cria('a',
 					cria('b',
@@ -88,9 +91,9 @@ int main(){
 	printf("\n");
 	imprimir(a);
 	
-	nf = folhas(a);
-	printf("\nNumero de folhas: %d\n", nf);
 	
+	ocd = ocorrencias(a, 'd');
+	printf("Ocorrencias de 'd': %d\n", ocd);
 	
 	libera(a);
 	

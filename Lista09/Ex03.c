@@ -48,27 +48,18 @@ int busca (Arv* a, char c){
 		return a->info==c || busca(a->esq,c) || busca(a->dir,c);
 }
 
-int folhas(Arv* a){
-	if (vazia(a))
-		return 0; 
-	else if (vazia(a->esq) && vazia(a->dir))
-		return 1; 
-	else
-		return folhas(a->esq) + folhas(a->dir); 
-}
-
 
 int igual(Arv* a, Arv* b){
 	if (vazia(a) && vazia(b))
 		return 1; 
 	else if (vazia(a) || vazia(b))
-		return 0;
+		return 0; 
 	else
 		return (a->info == b->info) && igual(a->esq, b->esq) && igual(a->dir, b->dir); 
 }
 
 int main(){
-    int nf;
+   
 	Arv *a1;
 	Arv* a = cria('a',
 					cria('b',
@@ -86,13 +77,29 @@ int main(){
 				cria('z',inicializa(),inicializa())
 				);
 	printf("\n");
+    printf("Arvore A:\n")
 	imprimir(a);
 	
-	nf = folhas(a);
-	printf("\nNumero de folhas: %d\n", nf);
+    Arv* b = cria('a',
+					cria('b',
+					inicializa(),
+					cria('d', inicializa(), inicializa())
+					),
+					cria('c',
+					cria('e', inicializa(), inicializa()),
+					cria('f', inicializa(), inicializa())
+					)
+				);
 	
+	int igualAB = igual(a, b);
+	if (igualAB)
+		printf("As arvores 'a' e 'b' sao iguais.\n");
+	else
+		printf("As arvores 'a' e 'b' sao diferentes.\n");
 	
 	libera(a);
+	libera(b);
+	
 	
 	return 0;
 }
