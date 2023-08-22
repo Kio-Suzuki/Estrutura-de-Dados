@@ -12,5 +12,5 @@ int main()
         a = 100 * sqrt(n);
         b = pow(2, n);
     }while(a > b);
-    printf("n = ", n);
+    printf("n = %d", n);
 }
