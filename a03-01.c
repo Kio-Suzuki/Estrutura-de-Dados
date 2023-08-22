@@ -3,14 +3,14 @@
 
 int main()
 {
-    int n = 1;
+    int n = 0;
     int a;
     int b;
     scanf("%d", &n); 
     do{
-        n++;
         a = 100 * sqrt(n);
         b = pow(2, n);
+        n++;
     }while(a > b);
     printf("n = %d", n);
 }
