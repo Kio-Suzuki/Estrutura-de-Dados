@@ -3,14 +3,12 @@
 
 int main()
 {
-    int n = 0;
-    int a;
-    int b;
-    scanf("%d", &n); 
+    int n = 1, a, b;
     do{
-        a = 100 * sqrt(n);
+        a = 100*pow(n,2);
         b = pow(2, n);
         n++;
     }while(a > b);
-    printf("n = %d", n);
+    printf("O menor valor de n para que o algoritmo 1 funcione mais rapido: n = %d", n-1);
+    return 0;
 }
