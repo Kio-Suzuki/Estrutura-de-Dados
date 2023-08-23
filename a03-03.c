@@ -3,38 +3,60 @@
 
 int main()
 {
-    int n = 1, a, b, c, d = 1;
+    int n = 1, a, b, c, d, e = 1;
     
     do{
         n++;
-        c = n*log(n);
-    }while(c < 1000000);
-    printf("n*log(2) = %d\n", n-1);
-
-    n = 1;
-
-    do{
-        a = pow(n,2);
-        n++;
+        a = n*log(n);
     }while(a < 1000000);
+    printf("1 seg - n*log(n) = %d\n", n-1);
+
+    n = 1;
+
+        do{
+        n++;
+        a = n*log(n);
+    }while(a < 60000000);
+    printf("1 min - n*log(n) = %d\n", n-1);
+
+    n = 1;
+
+    do{
+        b = pow(n,2);
+        n++;
+    }while(b < 1000000);
     printf("1 seg - n2 = %d\n", n-1);
-    printf("1 min - n2 = %d\n", (n-1)*60);
 
     n = 1;
 
     do{
-        b = pow(n,3);
+        b = pow(n,2);
         n++;
-    }while(b < 1000000);
+    }while(b < 60000000);
+    printf("1 min - n2 = %d\n", n-1);
+
+    n = 1;
+
+    do{
+        c = pow(n,3);
+        n++;
+    }while(c < 1000000);
     printf("1 seg - n3 = %d\n", n-1);
-    printf("1 min - n3 = %d\n", (n-1)*60);
+
+    n = 1;
+
+    do{
+        c = pow(n,3);
+        n++;
+    }while(c < 60000000);
+    printf("1 min - n3 = %d\n", n-1);
 
     n = 1;
 
     do{
         n++;
-        b = pow(2,n);
-    }while(b < 1000000);
+        d = pow(2,n);
+    }while(d < 1000000);
     printf("1 seg - 2n = %d\n", n-1);
     printf("1 min - 2n = %d\n", (n-1)*60);
 
@@ -42,10 +64,26 @@ int main()
 
     do{
         n++;
-        d = d * n;
-    }while(d < 1000000);
+        d = pow(2,n);
+    }while(d < 60000000);
+    printf("1 min - 2n = %d\n", n-1);
+
+    n = 1;
+
+    do{
+        n++;
+        e = e * n;
+    }while(e < 1000000);
     printf("1 seg - n! = %d\n", n-1);
-    printf("1 min - n! = %d", (n-1)*60);
+
+    n = 1;
+    e = 1;
+
+    do{
+        n++;
+        e = e * n;
+    }while(e < 60000000);
+    printf("1 min - n! = %d", n-1);
 
     return 0;
 }
