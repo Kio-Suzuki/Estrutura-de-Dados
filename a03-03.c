@@ -7,17 +7,17 @@ int main()
     
     do{
         n++;
-        a = n*log(n);
+        a = n*log2(n);
     }while(a < 1000000);
-    printf("1 seg - n*log(n) = %d\n", n-1);
+    printf("1 seg - n*log2(n) = %d\n", n-1);
 
     n = 1;
 
         do{
         n++;
-        a = n*log(n);
+        a = n*log2(n);
     }while(a < 60000000);
-    printf("1 min - n*log(n) = %d\n", n-1);
+    printf("1 min - n*log2(n) = %d\n", n-1);
 
     n = 1;
 
